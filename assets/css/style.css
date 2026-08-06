@@ -406,7 +406,25 @@ body:not(.no-hero) .site-header.is-scrolled {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(24, 38, 33, .5) 0%, rgba(24, 38, 33, .22) 38%, rgba(24, 38, 33, .58) 100%);
+    linear-gradient(180deg,
+      rgba(24, 38, 33, .5) 0%,
+      rgba(24, 38, 33, .22) 38%,
+      rgba(24, 38, 33, .5) 74%,
+      rgba(24, 38, 33, .12) 100%);
+}
+
+/* Zdjęcie rozpływa się w tło sekcji poniżej zamiast kończyć się ostrą krawędzią.
+   Wysokość w procentach, żeby niski nagłówek podstrony nie dostał tak samo grubego
+   pasa jak wysoki nagłówek strony głównej. --hero-fade nadpisujemy, gdyby pod
+   nagłówkiem miała kiedyś stanąć sekcja w innym kolorze niż kremowy. */
+.hero--photo::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 22%;
+  min-height: 5rem;
+  background: linear-gradient(180deg, transparent, var(--hero-fade, var(--cream)));
+  pointer-events: none;
 }
 
 .hero__inner {
@@ -674,6 +692,17 @@ body:not(.no-hero) .site-header.is-scrolled {
   position: absolute;
   inset: 0;
   background: rgba(26, 42, 36, .62);
+}
+
+/* To samo złagodzenie krawędzi co w nagłówku, tyle że w kolor stopki. */
+.cta-band::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 20%;
+  min-height: 4rem;
+  background: linear-gradient(180deg, transparent, var(--sand));
+  pointer-events: none;
 }
 
 .cta-band__inner {
