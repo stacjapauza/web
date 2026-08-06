@@ -596,25 +596,6 @@ body:not(.no-hero) .site-header.is-scrolled {
 
 .section-head :last-child { margin-bottom: 0; }
 
-/* ozdobny separator w duchu sygnetu marki */
-.mark {
-  display: block;
-  width: 1px;
-  height: 3.25rem;
-  margin: 0 auto 1.75rem;
-  background: linear-gradient(180deg, transparent, var(--sage));
-}
-
-.mark--dot {
-  height: auto;
-  width: auto;
-  background: none;
-  text-align: center;
-  color: var(--sage);
-  letter-spacing: .8em;
-  font-size: .7rem;
-}
-
 /* ---------- tekst + zdjęcie ---------- */
 
 .split {
