@@ -398,7 +398,28 @@ body:not(.no-hero) .site-header.is-scrolled {
   text-align: center;
 }
 
-.hero--large { min-height: min(88vh, 780px); }
+/* Wysokość dużego nagłówka podąża za proporcją zdjęcia, a nie za sztywnym limitem
+   w pikselach. Zdjęcie ma proporcję ok. 16:9, czyli wysokość ≈ 56% szerokości —
+   przy `background-size: cover` oznacza to, że kadr pokazuje się w całości.
+
+   Sztywne 780 px działało dobrze do jakichś 1440 px szerokości, ale wyżej okno robiło
+   się coraz bardziej „panoramiczne" od zdjęcia i cover przycinał je z góry i z dołu:
+   przy 1920 px ginęło 27% kadru, przy 2560 px prawie połowa. Postać rosła, a znikał
+   krajobraz dookoła niej — czyli to, co w tym ujęciu najlepsze.
+
+   78vh to dolna granica, żeby na niskich oknach nagłówek nie zrobił się pasem.
+
+   Limit --hero-max-h jest większy niż wysokość ekranu i to jest zamierzone: przy oknie
+   szerokim i niskim (np. 1623×750) pokazanie całego kadru wymaga 909 px wysokości.
+   Zejście do 100vh oznaczałoby tam z powrotem 17% ucięcia. Przy 130vh kadr jest pełny
+   na każdym rozmiarze, a przyciski i tak zostają nad zgięciem — sprawdzone od 968 px
+   do 2560 px szerokości. Poniżej zgięcia ląduje tylko dolny fragment zdjęcia, który
+   i tak rozpływa się w tło. */
+.hero--large {
+  min-height: min(max(78vh, 56vw), var(--hero-max-h, 130vh));
+}
+
+/* Niskie nagłówki podstron celowo pokazują tylko pas zdjęcia. */
 .hero--compact { min-height: min(58vh, 460px); }
 
 .hero--photo::before {
