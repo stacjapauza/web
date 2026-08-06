@@ -231,14 +231,40 @@ body:not(.no-hero) .site-header.is-scrolled {
 }
 
 .brand {
-  display: grid;
-  align-content: center;
-  gap: .2rem;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
   min-height: 2.75rem;
   min-width: 0;
   color: var(--forest);
   text-decoration: none;
   transition: color .3s;
+}
+
+.brand__text {
+  display: grid;
+  gap: .2rem;
+  min-width: 0;
+}
+
+/* Sygnet jako maska, a nie zwykły obrazek: dzięki temu przyjmuje kolor tekstu obok,
+   czyli jest biały nad zdjęciem i ciemnozielony po przewinięciu — bez drugiego pliku.
+   Poza @supports znak się nie pokazuje, żeby w starszej przeglądarce nie został
+   po nim kolorowy prostokąt. */
+.brand__mark {
+  display: none;
+  flex: none;
+  width: clamp(1.9rem, 4.4vw, 2.35rem);
+  aspect-ratio: 1;
+  background: currentColor;
+}
+
+@supports ((-webkit-mask-image: url("#m")) or (mask-image: url("#m"))) {
+  .brand__mark {
+    display: block;
+    -webkit-mask: url(/assets/img/logo-znak.svg) center / contain no-repeat;
+    mask: url(/assets/img/logo-znak.svg) center / contain no-repeat;
+  }
 }
 
 .brand__name {
