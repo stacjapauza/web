@@ -1,7 +1,7 @@
 # stacjapauza.pl
 
-Strona domowa **Stacji Pauza** — szkolenia i doradztwo z zakresu technik relaksacji,
-uważności i mindfulness.
+Strona domowa **Stacji Pauza** — warsztaty relaksacji i uważności dla dzieci
+i dorosłych.
 
 Zawartość tego repozytorium jest **generowana automatycznie** i serwowana przez
 GitHub Pages pod adresem [stacjapauza.pl](https://stacjapauza.pl). Nie edytujemy jej
