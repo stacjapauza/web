@@ -642,7 +642,9 @@ body:not(.no-hero) .site-header.is-scrolled {
 .cards {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.25rem);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  /* 16rem, a nie 17rem: przy kontenerze 1180 px cztery kolumny po 17rem plus odstępy
+     nie mieściły się w rzędzie i czwarta karta spadała sama do drugiego wiersza. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
 }
 
 .card {
