@@ -1,5 +1,5 @@
 /* Stacja Pauza — arkusz stylów.
-   Kolory wyprowadzone z logotypu i zdjęć marki (site/images/katalog.md):
+   Kolory wyprowadzone z logotypu i zdjęć marki (content/images/katalog.md):
    szałwiowa zieleń sygnetu, mgła nad jeziorem, ciepłe drewno, kremowy piasek. */
 
 :root {
@@ -137,7 +137,9 @@ p:last-child { margin-bottom: 0; }
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: .5rem;
+  min-height: 2.75rem;
   padding: .95rem 1.9rem;
   border: 1px solid var(--sage-deep);
   border-radius: var(--radius);
@@ -230,7 +232,9 @@ body:not(.no-hero) .site-header.is-scrolled {
 
 .brand {
   display: grid;
+  align-content: center;
   gap: .2rem;
+  min-height: 2.75rem;
   min-width: 0;
   color: var(--forest);
   text-decoration: none;
@@ -286,6 +290,7 @@ body:not(.no-hero) .site-header.is-scrolled {
   display: none;
   align-items: center;
   gap: .55rem;
+  min-height: 2.75rem;
   padding: .5rem 0;
   border: 0;
   background: none;
@@ -356,6 +361,9 @@ body:not(.no-hero) .site-header.is-scrolled {
   }
 
   .site-nav > a:not(.btn) {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
     padding: .95rem 0;
     border-bottom: 1px solid var(--line);
   }
@@ -558,10 +566,14 @@ body:not(.no-hero) .site-header.is-scrolled {
 
 .card__body p {
   color: var(--ink-soft);
-  font-size: .98rem;
+  font-size: 1rem;
 }
 
 .card__more {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 2.75rem;
   margin-top: auto;
   padding-top: 1.1rem;
   font-family: var(--font-head);
@@ -610,7 +622,7 @@ body:not(.no-hero) .site-header.is-scrolled {
 }
 
 .value p {
-  font-size: .95rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 
@@ -704,7 +716,14 @@ body:not(.no-hero) .site-header.is-scrolled {
   margin: 0 0 1.5rem;
   padding: 0;
   display: grid;
-  gap: .75rem;
+  gap: .15rem;
+}
+
+.contact-list a,
+.contact-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
 }
 
 .contact-list li {
@@ -725,8 +744,8 @@ body:not(.no-hero) .site-header.is-scrolled {
 .social a {
   display: grid;
   place-items: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 1px solid var(--line);
   border-radius: 50%;
   color: var(--sage-deep);
@@ -780,12 +799,15 @@ body:not(.no-hero) .site-header.is-scrolled {
 
 .site-footer__col nav {
   display: grid;
-  gap: .6rem;
+  gap: 0;
 }
 
 .site-footer__col nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   text-decoration: none;
-  font-size: .98rem;
+  font-size: 1rem;
 }
 
 .site-footer__col nav a:hover { text-decoration: underline; }
@@ -806,6 +828,9 @@ body:not(.no-hero) .site-header.is-scrolled {
 .site-footer__bottom p { margin: 0; }
 
 .site-footer__bottom a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   font-size: .85rem;
   text-decoration: none;
 }
