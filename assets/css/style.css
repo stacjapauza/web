@@ -175,6 +175,7 @@ p:last-child { margin-bottom: 0; }
 .btn--sm {
   padding: .65rem 1.25rem;
   font-size: .72rem;
+  white-space: nowrap;
 }
 
 /* ---------- nagłówek strony ---------- */
@@ -198,7 +199,7 @@ body:not(.no-hero) .site-header {
 }
 
 body:not(.no-hero) .site-header:not(.is-scrolled) .brand,
-body:not(.no-hero) .site-header:not(.is-scrolled) .site-nav > a,
+body:not(.no-hero) .site-header:not(.is-scrolled) .site-nav a:not(.btn),
 body:not(.no-hero) .site-header:not(.is-scrolled) .nav-toggle {
   color: var(--white);
 }
@@ -296,6 +297,7 @@ body:not(.no-hero) .site-header.is-scrolled {
 
 .site-nav > a:not(.btn) {
   font-family: var(--font-head);
+  white-space: nowrap;
   font-size: .78rem;
   font-weight: 400;
   letter-spacing: .14em;
@@ -310,6 +312,35 @@ body:not(.no-hero) .site-header.is-scrolled {
 .site-nav > a:not(.btn):hover,
 .site-nav > a[aria-current="page"] {
   border-bottom-color: currentColor;
+}
+
+/* Profile społecznościowe w nagłówku. Ikony mają własne pole dotykowe 44 px, więc
+   grupa dostaje ujemny margines — inaczej odsunęłaby się od menu bardziej, niż widać. */
+.site-nav__social {
+  display: flex;
+  align-items: center;
+  gap: .1rem;
+  margin: 0 -.6rem 0 -.35rem;
+}
+
+.site-nav__social a {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--ink);
+  border-radius: 50%;
+  transition: opacity .25s;
+}
+
+/* Wygaszanie zamiast zmiany koloru: działa tak samo nad zdjęciem i na kremowym tle. */
+.site-nav__social a:hover {
+  opacity: .65;
+}
+
+.site-nav__social .icon {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .nav-toggle {
@@ -363,7 +394,7 @@ body:not(.no-hero) .site-header.is-scrolled {
   .brand__tagline { display: none; }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1020px) {
   .nav-toggle { display: inline-flex; }
 
   .site-nav {
@@ -382,7 +413,7 @@ body:not(.no-hero) .site-header.is-scrolled {
   .site-nav.is-open { display: flex; }
 
   /* w rozwiniętym menu obowiązuje kremowe tło, nie jasny wariant znad zdjęcia */
-  body:not(.no-hero) .site-header:not(.is-scrolled) .site-nav.is-open > a {
+  body:not(.no-hero) .site-header:not(.is-scrolled) .site-nav.is-open a:not(.btn) {
     color: var(--ink);
   }
 
@@ -400,8 +431,14 @@ body:not(.no-hero) .site-header.is-scrolled {
     border-bottom-color: var(--line);
   }
 
+  /* W rozwiniętym menu ikony układają się w rząd pod pozycjami menu. */
+  .site-nav__social {
+    margin: 1.25rem 0 0 -.6rem;
+    gap: .35rem;
+  }
+
   .site-nav__cta {
-    margin-top: 1.35rem;
+    margin-top: 1.25rem;
     justify-content: center;
   }
 

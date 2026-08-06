@@ -45,7 +45,7 @@
     }
   });
 
-  window.matchMedia("(min-width: 861px)").addEventListener("change", function (event) {
+  window.matchMedia("(min-width: 1021px)").addEventListener("change", function (event) {
     if (event.matches) {
       setOpen(false);
     }
